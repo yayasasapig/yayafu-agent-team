@@ -102,8 +102,8 @@
 **建立日期:** 2026-04-23
 **位置:** `duty-roster-ics/`
 
-**待做:**
-- [ ] VEVENT time format 改用 `VALUE=DATE-TIME`
+**已完成:**
+- [x] VEVENT DTSTART/DTEND 改用 `VALUE=DATE-TIME` +08:00
 
 ---
 
@@ -112,8 +112,8 @@
 **建立日期:** 2026-04-23
 **位置:** `duty-roster-ics/`
 
-**待做:**
-- [ ] 更適合紙張的排版設計
+**已完成:**
+- [x] 更適合紙張的排版設計（@page landscape, 更好的字體/間距）
 
 ---
 
@@ -124,94 +124,89 @@
 **位置:** `duty-roster-ics/`
 
 **問題:** 點擊「預覽更期」後，iCalendar 內容在 JS 產生但冇 render 到可見 DOM
-**待做:**
-- [ ] 將 generateICS 的輸出顯示喺 previewArea 的 pre/textarea 內
+**已完成:**
+- [x] 將 generateICS 的輸出顯示喺 previewArea 的 pre/textarea 內
 
 ### Duty Roster 優化 #8: AN Shift 雙時段顯示
 **狀態:** ✅ 完成（commit a5c390b）
 **建立日期:** 2026-04-24
 **優先:** 🟠 中
 **位置:** `duty-roster-ics/`
+
 **問題:** AN 實際係 07:00-14:00 + 21:00-23:59 兩段，但 Ward View 只顯示一個 badge
-**待做:**
-- [ ] Ward View AN badge 加時段提示文字
+**已完成:**
+- [x] Ward View AN badge 加時段提示文字「1+2」
 
 ### Duty Roster 優化 #9: 月份導航同步
-**狀態:** ✅ 完成（commit a5c390b）
+**狀態:** ✅ 已移除功能（commit c0c0eba）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
+
 **問題:** Header 月份箭嘴改 currentDate，但 Ward View 用 currentWardDate，兩者冇關聯
-**待做:**
-- [ ] 點擊月份箭嘴時同步更新 currentWardDate
+**解決方案:** 已移除 header 重複的月份箭嘴，保留 Ward View 內的導航
 
 ### Duty Roster 優化 #10: 日期 URL 分享功能
 **狀態:** ✅ 完成（commit a5c390b）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
-**待做:**
-- [ ] 加入 #date=YYYY-MM-DD hash，支援 URL 分享特定日期
-- [ ] Ward View 切換時自動更新 URL
+**已完成:**
+- [x] 加入 #date=YYYY-MM-DD hash，支援 URL 分享特定日期
+- [x] Ward View 切換時自動更新 URL
 
 ### Duty Roster 優化 #16: 打印視圖剪貼板功能
 **狀態:** ✅ 完成（commit b58795e）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
-**問題:** 打印視圖只有 landscape，但移動裝置用户多
-**待做:**
-- [ ] 加「複製到剪貼板」一鍵功能
+**已完成:**
+- [x] 加「複製到剪貼板」一鍵功能（copyPrintTable()）
 
 ### Duty Roster 優化 #17: Ward View 記住上次日期
 **狀態:** ✅ 完成（commit 9f37df4）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
-**問題:** 每次打開都回到 3月1日，唔記住用戶上次的位置
-**待做:**
-- [ ] 用 localStorage 記住 currentWardDate
-- [ ] 打開時自動 restore
+**已完成:**
+- [x] 用 localStorage 記住 currentWardDate（dutyRoster_lastWardDate）
+- [x] 打開時自動 restore
 
 ### Duty Roster 優化 #18: 搜索功能改進
 **狀態:** ✅ 完成（commit f6fdb85）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
-**問題:** 只能搜護士名稱，唔支援日期/班次搜索
-**待做:**
-- [ ] 加日期快速跳轉（如：今日、下週）
-- [ ] 支援按班次關鍵字搜索（AN、A5 等）
+**已完成:**
+- [x] 加日期快速跳轉（今日、下週按鈕）
+- [x] 支援按班次關鍵字搜索（AN、A5 等）
 
 ### Duty Roster 優化 #19: 空數據提示改進
 **狀態:** ✅ 完成（commit 2fbd59a）
 **建立日期:** 2026-04-24
 **優先:** 🟡 低
 **位置:** `duty-roster-ics/`
-**問題:** 日期範圍冇數據時顯示「找不到工作日程」，冇引導性
-**待做:**
-- [ ] 顯示「請選擇 X 月至 Y 月」引導文字
-- [ ] 推薦有數據的日期範圍
+**已完成:**
+- [x] 顯示「請選擇 X 月至 Y 月」引導文字
+- [x] 推薦有數據的日期範圍
 
 ### Duty Roster 優化 #20: PWA 離線數據自動更新
 **狀態:** ✅ 完成（commit ad104cb）
 **建立日期:** 2026-04-24
 **優先:** 🟢 閒時
 **位置:** `duty-roster-ics/`
-**問題:** 只有 cache，冇後台更新機制
-**待做:**
-- [ ] 加 GitHub Actions 定期 fetch 最新 data.js
-- [ ] 實現 Service Worker 自動更新日曆數據
+**已完成:**
+- [x] GitHub Actions workflow 定期 fetch 最新 data.js
+- [x] Service Worker 自動更新日曆數據
 
 ### Duty Roster 優化 #11: 代碼重構
-**狀態:** ✅ 完成（commit d4779b7）
+**狀態:** ⚠️ 已 Revert（commit 0c9b867 — 導致頁面break）
 **建立日期:** 2026-04-24
 **優先:** 🟢 閒時
 **位置:** `duty-roster-ics/`
+
 **問題:** 所有代碼喺 index.html，難維護
-**待做:**
-- [ ] 拆分 JS 到 js/app.js
-- [ ] 拆分 CSS 到 css/styles.css
+**狀態:** 嘗試拆分 JS 到 js/app.js、CSS 到 css/styles.css，但導致頁面無法運作，已 revert。未來如要重構需要更謹慎的測試。
 
 ---
 
